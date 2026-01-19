@@ -52,7 +52,14 @@ def first_stable_character(s):
         None
     """
     # TODO: Implement your solution here
-    pass
+    for i in range(len(s)):
+        char = s[i]
+        if s.count(char) >= 2:
+            start_index = s.find(char)
+            end_index = s.rfind(char)
+            if end_index - start_index + 1 == s.count(char):
+                return char
+    return None
 
 
 if __name__ == "__main__":
