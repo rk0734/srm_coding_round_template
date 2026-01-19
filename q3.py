@@ -67,7 +67,19 @@ def find_overloaded_users(events):
         set()
     """
     # TODO: Implement your solution here
-    pass
+    from collections import defaultdict
+    def find_overloaded_users(events):
+     d = defaultdict(list)
+     s = set()
+     for u, t in events:
+        d[u].append(t)
+     for u, a in d.items():
+        a.sort()
+        for i in range(len(a) - 2):
+            if a[i + 2] - a[i] < 10:
+                s.add(u)
+                break
+     return s
 
 
 if __name__ == "__main__":
